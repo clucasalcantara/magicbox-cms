@@ -1,0 +1,46 @@
+{
+  "name": "magicbox-cms",
+  "version": "1.0.0",
+  "description": "A CMS Built with After and Sails to easily generate react web pages",
+  "main": "index.js",
+  "scripts": {
+    "start": "after start",
+    "test": "after test --env=jsdom",
+    "build": "after build",
+    "start:prod": "NODE_ENV=production node build/build/server.js",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/clucasalcantara/magicbox-cms.git"
+  },
+  "keywords": [
+    "magicbox",
+    "react",
+    "cms",
+    "after"
+  ],
+  "author": "Caio Alcantara",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/clucasalcantara/magicbox-cms/issues"
+  },
+  "homepage": "https://github.com/clucasalcantara/magicbox-cms#readme",
+  "dependencies": {
+    "@jaredpalmer/after": "^0.5.1",
+    "apisauce": "^0.14.3",
+    "axios": "^0.17.1",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-helmet": "^5.2.0",
+    "react-router-dom": "^4.2.2"
+  },
+  "devDependencies": {
+    "@storybook/react": "^3.3.9",
+    "@storybook/addon-actions": "^3.3.9",
+    "@storybook/addon-links": "^3.3.9",
+    "@storybook/addons": "^3.3.9",
+    "babel-core": "^6.26.0"
+  }
+}
