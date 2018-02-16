@@ -2,6 +2,7 @@ const path = require('path');
 const merge = require('webpack-merge');
 const baseConfig = require('./webpack.base.js');
 const webpackNodeExternals = require('webpack-node-externals');
+const WebpackMessages = require('webpack-messages')
 
 const config = {
   // Inform webpack that we're building a bundle
@@ -18,6 +19,12 @@ const config = {
     filename: 'bundle.js',
     path: path.resolve(__dirname, '../build')
   },
+  plugins: [
+    new WebpackMessages({
+      name: 'server',
+      logger: str => console.log(`Server bundle >> ${str}`)
+    })
+  ],
 
   externals: [webpackNodeExternals()]
 };
