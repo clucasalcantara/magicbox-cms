@@ -2,7 +2,8 @@ import express from 'express'
 import React from 'react'
 import { renderToString } from 'react-dom/server'
 // Import custom renderer
-import easyRenderer from './helpers/easyRenderer';
+import { easyRenderer, easyStore } from './helpers';
+import { create } from 'domain';
 
 const app = express();
 
@@ -11,7 +12,10 @@ app.use(
 )
 
 app.get('*', (req, res) => {
-  res.send(easyRenderer(req))
+  const store = easyStore()
+
+  // To Do: Initialize/Rehydrate data
+  res.send(easyRenderer(req, store))
 });
 
 app.listen(3333, () => {
