@@ -1,19 +1,21 @@
 // This file is to handle the specific code part for the client side
+import 'babel-polyfill'
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { BrowserRouter } from 'react-router-dom'
-// Importing routes
-import Routes from '../config/_routes'
-// Importing redux stuff
+import { renderRoutes } from 'react-router-config'
 import { Provider } from 'react-redux'
-import { easyStore } from '../helpers' 
+// Importing routes
+import Routes from '../shared/config/_routes'
+// Importing redux store
+import { easyStore } from '../shared/helpers'
 
 const store = easyStore()
 
 ReactDOM.hydrate(
   <Provider store={store}>
     <BrowserRouter>
-      <Routes />
+      <div>{renderRoutes(Routes)}</div>
     </BrowserRouter>
   </Provider>,
   document.getElementById('root')

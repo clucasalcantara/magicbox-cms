@@ -5,6 +5,7 @@ const webpackNodeExternals = require('webpack-node-externals');
 const WebpackMessages = require('webpack-messages')
 
 const config = {
+  devtool: 'eval',
   // Inform webpack that we're building a bundle
   // for nodeJS, rather than for the browser
   target: 'node',

@@ -1368,6 +1368,10 @@ console-browserify@^1.1.0:
   dependencies:
     date-now "^0.1.4"
 
+console-clear@^1.0.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/console-clear/-/console-clear-1.1.0.tgz#d5d381b813c80d14d2cce169449585639d31325a"
+
 console-control-strings@^1.0.0, console-control-strings@~1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/console-control-strings/-/console-control-strings-1.1.0.tgz#3d7cf4464db6446ea644bf4b39507f9851008e8e"
@@ -1714,8 +1718,8 @@ es-to-primitive@^1.1.1:
     is-symbol "^1.0.1"
 
 es5-ext@^0.10.14, es5-ext@^0.10.35, es5-ext@^0.10.9, es5-ext@~0.10.14:
-  version "0.10.38"
-  resolved "https://registry.yarnpkg.com/es5-ext/-/es5-ext-0.10.38.tgz#fa7d40d65bbc9bb8a67e1d3f9cc656a00530eed3"
+  version "0.10.39"
+  resolved "https://registry.yarnpkg.com/es5-ext/-/es5-ext-0.10.39.tgz#fca21b67559277ca4ac1a1ed7048b107b6f76d87"
   dependencies:
     es6-iterator "~2.0.3"
     es6-symbol "~3.1.1"
@@ -2995,7 +2999,7 @@ miller-rabin@^4.0.0:
     bn.js "^4.0.0"
     brorand "^1.0.1"
 
-"mime-db@>= 1.30.0 < 2":
+"mime-db@>= 1.30.0 < 2", mime-db@~1.33.0:
   version "1.33.0"
   resolved "https://registry.yarnpkg.com/mime-db/-/mime-db-1.33.0.tgz#a3492050a5cb9b63450541e39d9788d2272783db"
 
@@ -3003,7 +3007,13 @@ mime-db@~1.30.0:
   version "1.30.0"
   resolved "https://registry.yarnpkg.com/mime-db/-/mime-db-1.30.0.tgz#74c643da2dd9d6a45399963465b26d5ca7d71f01"
 
-mime-types@^2.1.12, mime-types@~2.1.15, mime-types@~2.1.16, mime-types@~2.1.17, mime-types@~2.1.7:
+mime-types@^2.1.12, mime-types@~2.1.7:
+  version "2.1.18"
+  resolved "https://registry.yarnpkg.com/mime-types/-/mime-types-2.1.18.tgz#6f323f60a83d11146f831ff11fd66e2fe5503bb8"
+  dependencies:
+    mime-db "~1.33.0"
+
+mime-types@~2.1.15, mime-types@~2.1.16, mime-types@~2.1.17:
   version "2.1.17"
   resolved "https://registry.yarnpkg.com/mime-types/-/mime-types-2.1.17.tgz#09d7a393f03e995a79f8af857b70a9e0ab16557a"
   dependencies:
@@ -3069,8 +3079,8 @@ multicast-dns@^6.0.1:
     thunky "^1.0.2"
 
 nan@^2.3.0:
-  version "2.8.0"
-  resolved "https://registry.yarnpkg.com/nan/-/nan-2.8.0.tgz#ed715f3fe9de02b57a5e6252d90a96675e1f085a"
+  version "2.9.1"
+  resolved "https://registry.yarnpkg.com/nan/-/nan-2.9.1.tgz#af88fcaee5292992c5b755121ceeaa74536fc228"
 
 negotiator@0.6.1:
   version "0.6.1"
@@ -3749,9 +3759,9 @@ readdirp@^2.0.0:
     readable-stream "^2.0.2"
     set-immediate-shim "^1.0.1"
 
-redux-thunk@2.2.0:
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/redux-thunk/-/redux-thunk-2.2.0.tgz#e615a16e16b47a19a515766133d1e3e99b7852e5"
+redux-saga@^0.16.0:
+  version "0.16.0"
+  resolved "https://registry.yarnpkg.com/redux-saga/-/redux-saga-0.16.0.tgz#0a231db0a1489301dd980f6f2f88d8ced418f724"
 
 redux@3.7.2:
   version "3.7.2"
@@ -4606,11 +4616,25 @@ webpack-dev-server@2.8.2:
     webpack-dev-middleware "^1.11.0"
     yargs "^6.6.0"
 
+webpack-format-messages@^1.0.0:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/webpack-format-messages/-/webpack-format-messages-1.0.1.tgz#e13e32d69d8991d4246e1f3c9f1fa7b4782d6d11"
+  dependencies:
+    chalk "^2.0.1"
+
 webpack-merge@4.1.0:
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/webpack-merge/-/webpack-merge-4.1.0.tgz#6ad72223b3e0b837e531e4597c199f909361511e"
   dependencies:
     lodash "^4.17.4"
+
+webpack-messages@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/webpack-messages/-/webpack-messages-1.0.1.tgz#f49078833a2947270786f67719a4b5f49b4587b5"
+  dependencies:
+    chalk "^2.0.1"
+    console-clear "^1.0.0"
+    webpack-format-messages "^1.0.0"
 
 webpack-node-externals@1.6.0:
   version "1.6.0"
