@@ -1,7 +1,13 @@
 // This file is to handle the specific code part for the client side
 import React from 'react'
 import ReactDOM from 'react-dom'
+import { BrowserRouter } from 'react-router-dom'
+// Importing routes
+import Routes from '../config/_routes'
 
-import Home from './components/pages/Home'
-
-ReactDOM.hydrate(<Home />, document.getElementById('root'))
+ReactDOM.hydrate(
+  <BrowserRouter>
+    <Routes />
+  </BrowserRouter>,
+  document.getElementById('root')
+)
