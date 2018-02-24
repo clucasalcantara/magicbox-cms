@@ -11,6 +11,9 @@ import Helmet from 'react-helmet'
 export default (req = {}, store = {}) => {
   const { path } = req
   const head = Helmet.renderStatic()
+  // Checking for preloaded state to inject
+  const preloadedState = typeof store.getState() !== 'undefined' ? store.getState() : {}
+  // Creating rendering markup for react application
   const content = renderToString(
     <Provider store={store}>
       <StaticRouter location={path} context={{}}>
@@ -36,6 +39,9 @@ export default (req = {}, store = {}) => {
       </head>
       <body>
         <div id="root">${content}</div>
+        <script>
+          window.__PRELOADED_STATE__ = ${JSON.stringify(preloadedState).replace(/</g, '\\x3c')}
+        </script>
         <script src="scripts.js"></script>
       </body>
     </html>
