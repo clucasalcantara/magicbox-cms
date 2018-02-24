@@ -5,9 +5,12 @@ import { Provider } from 'react-redux'
 // Importing routes
 import { renderRoutes } from 'react-router-config'
 import Routes from '../config/_routes';
+// Import react helmet
+import Helmet from 'react-helmet'
 
 export default (req = {}, store = {}) => {
   const { path } = req
+  const head = Helmet.renderStatic()
   const content = renderToString(
     <Provider store={store}>
       <StaticRouter location={path} context={{}}>
@@ -18,7 +21,19 @@ export default (req = {}, store = {}) => {
 
   return `
     <html>
-      <head></head>
+      <head>
+          <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+          <meta name="google-site-verification" content="pzt0EPO2tyHLuk8xVtwYI-SGmKKo3w57PNU6OoyP6GY" />
+          <meta name="google-site-verification" content="e-DrbE3gv4C-V7kCy2MW_H-Pc-SmwSOyaz1ot9EUU4g" />
+          ${(head.title) ? head.title.toString() : ''}
+          <script>
+            window.dataLayer = [];
+          </script>
+          ${(head.meta) ? head.meta.toString().replace(/\/>/g, '/>\n    ') : ''}
+          ${(head.script) ? head.script.toString() : ''}
+          ${(head.link) ? head.link.toString() : ''}
+      </head>
       <body>
         <div id="root">${content}</div>
         <script src="scripts.js"></script>
