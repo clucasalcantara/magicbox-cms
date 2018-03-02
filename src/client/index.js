@@ -1,4 +1,8 @@
-// This file is to handle the specific code part for the client side
+/**
+ * Client entrypoint
+ * Author: Caio Alcantara - 2018
+ * @memberOf magicbox-core/isomorphic
+ */
 import 'babel-polyfill'
 import React from 'react'
 import ReactDOM from 'react-dom'

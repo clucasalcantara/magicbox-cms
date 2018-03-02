@@ -1,3 +1,8 @@
+/**
+ * Webpack base
+ * Author: Caio Alcantara - 2018
+ * @memberOf magicbox-core/isomorphic
+ */
 module.exports = {
   // Tell webpack to run babel on every file it runs through
   module: {
@@ -17,4 +22,4 @@ module.exports = {
       }
     ]
   }
-};
+}

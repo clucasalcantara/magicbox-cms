@@ -1,11 +1,13 @@
 /**
- *
-*/
+ * Routes - Declarative way to set routes
+ * Author: Caio Alcantara - 2018
+ * @memberOf magicbox-core/isomorphic
+ */
 import React from 'react'
 import { Route } from 'react-router-dom'
 // Import constants
 import { MATCH_ROUTE_EXACT } from './constants'
-// Import routes containers
+// Import containers components
 import Home from '../../client/components/pages/Home'
 
 

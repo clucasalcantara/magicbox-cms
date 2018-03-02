@@ -1,10 +1,17 @@
+/**
+ * EasyStore - Responsible to generate the store to our app
+ * Author: Caio Alcantara - 2018
+ * @memberOf magicbox-core/isomorphic
+ */
 import { createStore, applyMiddleware } from 'redux'
 // Import redux-saga Middleware
 import createSagaMiddleware from 'redux-saga'
-
+// Creating saga middleware
 const sagaMiddleware = createSagaMiddleware()
-
+// Initializing reducers
+// To Do: Remove and insert the right reducer set
 const reducers = () => {}
-const initialState = {}
+// Getting initial state from window and injecting on store
+const initialState = typeof window !== 'undefined' ? window.__INITIAL_STATE__ : null
 
-export default () => createStore(reducers, initialState, applyMiddleware(sagaMiddleware))
+export default (apiInstance) => createStore(reducers, initialState, applyMiddleware(sagaMiddleware))

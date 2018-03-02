@@ -1,7 +1,12 @@
-const path = require('path');
-const merge = require('webpack-merge');
-const baseConfig = require('./webpack.base.js');
-const webpackNodeExternals = require('webpack-node-externals');
+/**
+ * Webpack server
+ * Author: Caio Alcantara - 2018
+ * @memberOf magicbox-core/isomorphic
+*/
+const path = require('path')
+const merge = require('webpack-merge')
+const baseConfig = require('./webpack.base.js')
+const webpackNodeExternals = require('webpack-node-externals')
 const WebpackMessages = require('webpack-messages')
 
 const config = {
@@ -28,6 +33,6 @@ const config = {
   ],
 
   externals: [webpackNodeExternals()]
-};
+}
 
-module.exports = merge(baseConfig, config);
+module.exports = merge(baseConfig, config)

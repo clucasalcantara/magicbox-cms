@@ -1,12 +1,20 @@
+/**
+ * EasyRenderer - Holds the template generation for SSR and
+ * preloaded input injection
+ * Author: Caio Alcantara - 2018
+ * @memberOf magicbox-core/isomorphic
+ */
 import React from 'react'
 import { renderToString } from 'react-dom/server'
 import { StaticRouter } from 'react-router-dom'
 import { Provider } from 'react-redux'
 // Importing routes
 import { renderRoutes } from 'react-router-config'
-import Routes from '../config/_routes';
+import Routes from '../config/_routes'
 // Import react helmet
 import Helmet from 'react-helmet'
+// Mitigate XSS Attacks
+import serialize from 'serialize-javascript'
 
 export default (req = {}, store = {}) => {
   const { path } = req
@@ -40,7 +48,7 @@ export default (req = {}, store = {}) => {
       <body>
         <div id="root">${content}</div>
         <script>
-          window.__PRELOADED_STATE__ = ${JSON.stringify(preloadedState).replace(/</g, '\\x3c')}
+          window.__PRELOADED_STATE__ = ${serialize(preloadedState)}
         </script>
         <script src="scripts.js"></script>
       </body>

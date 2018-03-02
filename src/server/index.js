@@ -1,16 +1,23 @@
+/**
+ * Server entrypoint
+ * Author: Caio Alcantara - 2018
+ * @memberOf magicbox-core/isomorphic
+ */
 import 'babel-polyfill'
 import express from 'express'
 import React from 'react'
 // Routers helpers
 import { matchRoutes } from 'react-router-config'
 // Import custom renderer and store
-import { easyRenderer, easyStore } from '../shared/helpers';
+import { easyRenderer, easyStore } from '../shared/helpers'
+// Import local api
+import { api, requestMonitor } from '../shared/config/api'
 // Import routes
-import _routes from '../shared/config/_routes';
+import _routes from '../shared/config/_routes'
 // Import react helmet
 import Helmet from 'react-helmet'
 
-const app = express();
+const app = express()
 
 // Setting static assets
 app.use(express.static('public'))
@@ -32,10 +39,9 @@ app.get('*', async (req, res) => {
   await Promise.all(pendingRequests)
 
   // To Do: Initialize/Rehydrate data
-
   res.send(easyRenderer(req, store))
-});
+})
 
 app.listen(3333, () => {
-  console.log('Listening on port 3333');
-});
+  console.log('Listening on port 3333')
+})

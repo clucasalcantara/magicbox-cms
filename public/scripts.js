@@ -8645,12 +8645,14 @@ Object.defineProperty(exports, "__esModule", {
 });
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; /**
-                                                                                                                                                                                                                                                                   *
-                                                                                                                                                                                                                                                                  */
+                                                                                                                                                                                                                                                                   * Routes - Declarative way to set routes
+                                                                                                                                                                                                                                                                   * Author: Caio Alcantara - 2018
+                                                                                                                                                                                                                                                                   * @memberOf magicbox-core/isomorphic
+                                                                                                                                                                                                                                                                   */
 
 // Import constants
 
-// Import routes containers
+// Import containers components
 
 
 var _react = __webpack_require__(5);
@@ -9695,9 +9697,9 @@ function proc(iterator) {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return takeEvery; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return takeLatest; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return throttle; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__takeEvery__ = __webpack_require__(476);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__takeLatest__ = __webpack_require__(477);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__throttle__ = __webpack_require__(478);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__takeEvery__ = __webpack_require__(477);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__takeLatest__ = __webpack_require__(478);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__throttle__ = __webpack_require__(479);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__utils__ = __webpack_require__(23);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_0__takeEvery__["a"]; });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return __WEBPACK_IMPORTED_MODULE_1__takeLatest__["a"]; });
@@ -9750,7 +9752,11 @@ var _helpers = __webpack_require__(460);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 // Importing routes
-// This file is to handle the specific code part for the client side
+/**
+ * Client entrypoint
+ * Author: Caio Alcantara - 2018
+ * @memberOf magicbox-core/isomorphic
+ */
 var store = (0, _helpers.easyStore)();
 // Importing redux store
 
@@ -39295,6 +39301,11 @@ function verifySubselectors(mapStateToProps, mapDispatchToProps, mergeProps, dis
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+/**
+ * Constants - Holds all custom variables
+ * Author: Caio Alcantara - 2018
+ * @memberOf magicbox-core/isomorphic
+ */
 exports.default = {
   MATCH_ROUTE_EXACT: { exact: true }
 };
@@ -39353,12 +39364,17 @@ var _easyRenderer = __webpack_require__(461);
 
 var _easyRenderer2 = _interopRequireDefault(_easyRenderer);
 
-var _easyStore = __webpack_require__(473);
+var _easyStore = __webpack_require__(474);
 
 var _easyStore2 = _interopRequireDefault(_easyStore);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+/**
+ * Interface to export helpers from easyEngine
+ * Author: Caio Alcantara - 2018
+ * @memberOf magicbox-core/isomorphic
+ */
 exports.easyRenderer = _easyRenderer2.default;
 exports.easyStore = _easyStore2.default;
 
@@ -39393,14 +39409,30 @@ var _reactHelmet = __webpack_require__(465);
 
 var _reactHelmet2 = _interopRequireDefault(_reactHelmet);
 
+var _serializeJavascript = __webpack_require__(473);
+
+var _serializeJavascript2 = _interopRequireDefault(_serializeJavascript);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+// Import react helmet
+
+// Importing routes
+/**
+ * EasyRenderer - Holds the template generation for SSR and
+ * preloaded input injection
+ * Author: Caio Alcantara - 2018
+ * @memberOf magicbox-core/isomorphic
+ */
 exports.default = function () {
   var req = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
   var store = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
   var path = req.path;
 
   var head = _reactHelmet2.default.renderStatic();
+  // Checking for preloaded state to inject
+  var preloadedState = typeof store.getState() !== 'undefined' ? store.getState() : {};
+  // Creating rendering markup for react application
   var content = (0, _server.renderToString)(_react2.default.createElement(
     _reactRedux.Provider,
     { store: store },
@@ -39415,11 +39447,9 @@ exports.default = function () {
     )
   ));
 
-  return '\n    <html>\n      <head>\n          <meta http-equiv="Content-Type" content="text/html; charset=utf-8">\n          <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">\n          <meta name="google-site-verification" content="pzt0EPO2tyHLuk8xVtwYI-SGmKKo3w57PNU6OoyP6GY" />\n          <meta name="google-site-verification" content="e-DrbE3gv4C-V7kCy2MW_H-Pc-SmwSOyaz1ot9EUU4g" />\n          ' + (head.title ? head.title.toString() : '') + '\n          <script>\n            window.dataLayer = [];\n          </script>\n          ' + (head.meta ? head.meta.toString().replace(/\/>/g, '/>\n    ') : '') + '\n          ' + (head.script ? head.script.toString() : '') + '\n          ' + (head.link ? head.link.toString() : '') + '\n      </head>\n      <body>\n        <div id="root">' + content + '</div>\n        <script src="scripts.js"></script>\n      </body>\n    </html>\n  ';
+  return '\n    <html>\n      <head>\n          <meta http-equiv="Content-Type" content="text/html; charset=utf-8">\n          <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">\n          <meta name="google-site-verification" content="pzt0EPO2tyHLuk8xVtwYI-SGmKKo3w57PNU6OoyP6GY" />\n          <meta name="google-site-verification" content="e-DrbE3gv4C-V7kCy2MW_H-Pc-SmwSOyaz1ot9EUU4g" />\n          ' + (head.title ? head.title.toString() : '') + '\n          <script>\n            window.dataLayer = [];\n          </script>\n          ' + (head.meta ? head.meta.toString().replace(/\/>/g, '/>\n    ') : '') + '\n          ' + (head.script ? head.script.toString() : '') + '\n          ' + (head.link ? head.link.toString() : '') + '\n      </head>\n      <body>\n        <div id="root">' + content + '</div>\n        <script>\n          window.__PRELOADED_STATE__ = ' + (0, _serializeJavascript2.default)(preloadedState) + '\n        </script>\n        <script src="scripts.js"></script>\n      </body>\n    </html>\n  ';
 };
-// Import react helmet
-
-// Importing routes
+// Mitigate XSS Attacks
 
 /***/ }),
 /* 462 */
@@ -43901,6 +43931,130 @@ exports.warn = warn;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
+/*
+Copyright (c) 2014, Yahoo! Inc. All rights reserved.
+Copyrights licensed under the New BSD License.
+See the accompanying LICENSE file for terms.
+*/
+
+
+
+// Generate an internal UID to make the regexp pattern harder to guess.
+var UID                 = Math.floor(Math.random() * 0x10000000000).toString(16);
+var PLACE_HOLDER_REGEXP = new RegExp('"@__(F|R|D)-' + UID + '-(\\d+)__@"', 'g');
+
+var IS_NATIVE_CODE_REGEXP = /\{\s*\[native code\]\s*\}/g;
+var UNSAFE_CHARS_REGEXP   = /[<>\/\u2028\u2029]/g;
+
+// Mapping of unsafe HTML and invalid JavaScript line terminator chars to their
+// Unicode char counterparts which are safe to use in JavaScript strings.
+var ESCAPED_CHARS = {
+    '<'     : '\\u003C',
+    '>'     : '\\u003E',
+    '/'     : '\\u002F',
+    '\u2028': '\\u2028',
+    '\u2029': '\\u2029'
+};
+
+function escapeUnsafeChars(unsafeChar) {
+    return ESCAPED_CHARS[unsafeChar];
+}
+
+module.exports = function serialize(obj, options) {
+    options || (options = {});
+
+    // Backwards-compatability for `space` as the second argument.
+    if (typeof options === 'number' || typeof options === 'string') {
+        options = {space: options};
+    }
+
+    var functions = [];
+    var regexps   = [];
+    var dates     = [];
+
+    // Returns placeholders for functions and regexps (identified by index)
+    // which are later replaced by their string representation.
+    function replacer(key, value) {
+        if (!value) {
+            return value;
+        }
+
+        // If the value is an object w/ a toJSON method, toJSON is called before
+        // the replacer runs, so we use this[key] to get the non-toJSONed value.
+        var origValue = this[key];
+        var type = typeof origValue;
+
+        if (type === 'object') {
+            if(origValue instanceof RegExp) {
+                return '@__R-' + UID + '-' + (regexps.push(origValue) - 1) + '__@';
+            }
+
+            if(origValue instanceof Date) {
+                return '@__D-' + UID + '-' + (dates.push(origValue) - 1) + '__@';
+            }
+        }
+
+        if (type === 'function') {
+            return '@__F-' + UID + '-' + (functions.push(origValue) - 1) + '__@';
+        }
+
+        return value;
+    }
+
+    var str;
+
+    // Creates a JSON string representation of the value.
+    // NOTE: Node 0.12 goes into slow mode with extra JSON.stringify() args.
+    if (options.isJSON && !options.space) {
+        str = JSON.stringify(obj);
+    } else {
+        str = JSON.stringify(obj, options.isJSON ? null : replacer, options.space);
+    }
+
+    // Protects against `JSON.stringify()` returning `undefined`, by serializing
+    // to the literal string: "undefined".
+    if (typeof str !== 'string') {
+        return String(str);
+    }
+
+    // Replace unsafe HTML and invalid JavaScript line terminator chars with
+    // their safe Unicode char counterpart. This _must_ happen before the
+    // regexps and functions are serialized and added back to the string.
+    str = str.replace(UNSAFE_CHARS_REGEXP, escapeUnsafeChars);
+
+    if (functions.length === 0 && regexps.length === 0 && dates.length === 0) {
+        return str;
+    }
+
+    // Replaces all occurrences of function, regexp and date placeholders in the
+    // JSON string with their string representations. If the original value can
+    // not be found, then `undefined` is used.
+    return str.replace(PLACE_HOLDER_REGEXP, function (match, type, valueIndex) {
+        if (type === 'D') {
+            return "new Date(\"" + dates[valueIndex].toISOString() + "\")";
+        }
+
+        if (type === 'R') {
+            return regexps[valueIndex].toString();
+        }
+
+        var fn           = functions[valueIndex];
+        var serializedFn = fn.toString();
+
+        if (IS_NATIVE_CODE_REGEXP.test(serializedFn)) {
+            throw new TypeError('Serializing native function: ' + fn.name);
+        }
+
+        return serializedFn;
+    });
+}
+
+
+/***/ }),
+/* 474 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
 
 
 Object.defineProperty(exports, "__esModule", {
@@ -43909,30 +44063,38 @@ Object.defineProperty(exports, "__esModule", {
 
 var _redux = __webpack_require__(176);
 
-var _reduxSaga = __webpack_require__(474);
+var _reduxSaga = __webpack_require__(475);
 
 var _reduxSaga2 = _interopRequireDefault(_reduxSaga);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+// Creating saga middleware
+/**
+ * EasyStore - Responsible to generate the store to our app
+ * Author: Caio Alcantara - 2018
+ * @memberOf magicbox-core/isomorphic
+ */
 var sagaMiddleware = (0, _reduxSaga2.default)();
+// Initializing reducers
+// To Do: Remove and insert the right reducer set
+
 // Import redux-saga Middleware
-
-
 var reducers = function reducers() {};
-var initialState = {};
+// Getting initial state from window and injecting on store
+var initialState = typeof window !== 'undefined' ? window.__INITIAL_STATE__ : null;
 
-exports.default = function () {
+exports.default = function (apiInstance) {
   return (0, _redux.createStore)(reducers, initialState, (0, _redux.applyMiddleware)(sagaMiddleware));
 };
 
 /***/ }),
-/* 474 */
+/* 475 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__internal_middleware__ = __webpack_require__(475);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__internal_middleware__ = __webpack_require__(476);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__internal_runSaga__ = __webpack_require__(187);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "runSaga", function() { return __WEBPACK_IMPORTED_MODULE_1__internal_runSaga__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__internal_channel__ = __webpack_require__(57);
@@ -43950,8 +44112,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "CANCEL", function() { return __WEBPACK_IMPORTED_MODULE_5__internal_utils__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__internal_io__ = __webpack_require__(51);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "detach", function() { return __WEBPACK_IMPORTED_MODULE_6__internal_io__["i"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__effects__ = __webpack_require__(479);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__utils__ = __webpack_require__(480);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__effects__ = __webpack_require__(480);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__utils__ = __webpack_require__(481);
 /* harmony reexport (module object) */ __webpack_require__.d(__webpack_exports__, "effects", function() { return __WEBPACK_IMPORTED_MODULE_7__effects__; });
 /* harmony reexport (module object) */ __webpack_require__.d(__webpack_exports__, "utils", function() { return __WEBPACK_IMPORTED_MODULE_8__utils__; });
 
@@ -43970,7 +44132,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 /***/ }),
-/* 475 */
+/* 476 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -44064,7 +44226,7 @@ function sagaMiddlewareFactory() {
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(6)))
 
 /***/ }),
-/* 476 */
+/* 477 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -44102,7 +44264,7 @@ function takeEvery(patternOrChannel, worker) {
 }
 
 /***/ }),
-/* 477 */
+/* 478 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -44150,7 +44312,7 @@ function takeLatest(patternOrChannel, worker) {
 }
 
 /***/ }),
-/* 478 */
+/* 479 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -44207,7 +44369,7 @@ function throttle(delayLength, pattern, worker) {
 }
 
 /***/ }),
-/* 479 */
+/* 480 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -44237,7 +44399,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 /***/ }),
-/* 480 */
+/* 481 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
