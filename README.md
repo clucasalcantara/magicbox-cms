@@ -1,26 +1,13 @@
-## Easy React
+## MagicBox
 
-**Motivation:** This project is a workflow to kickstart react applications with basic or no configuration for SSR Environments.
-Also we want to create react SPA's in the easiest possible way, because of this we are setting an custom engine called easy react.
+Made with magic, made with _React_
 
-The objective beyond Easy React is to be an interface to create, in a more friendly way, a react application structure.
+The objective beyond MagicBox is to provide an easy way to create beautiful websites with simplicity without lose the power of a single page application written by React.
 
-```javascript
-// Generators usage example:
-console.log('coming soon')
-```
+We are trying to provide an Easy interface to create _Pages_, _Navigations_, _Galeries_, _Components_ (to compose a Layout) and _Layouts_.
 
-```javascript
-// Styling
-console.log('coming soon')
-```
+### Come on! Give a try! It's...
 
-```javascript
-// Building and dev
-console.log('coming soon')
-```
-
-```javascript
-// Deploying
-console.log('coming soon')
-```
+<div align="center">
+  <img src="https://media0.giphy.com/media/12NUbkX6p4xOO4/giphy.gif" />
+</div>
