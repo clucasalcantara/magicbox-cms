@@ -1,7 +1,7 @@
 /**
  * config - Interface to expose the config files
  * Author: Caio Alcantara - 2018
- * @memberOf magicbox-core/isomorphic
+ * @memberOf magicbox-cms
 */
 import Routes from './_routes'
 import api from './api'

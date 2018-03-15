@@ -1,7 +1,7 @@
 /**
  * Client entrypoint
  * Author: Caio Alcantara - 2018
- * @memberOf magicbox-core/isomorphic
+ * @memberOf magicbox-cms
  */
 import 'babel-polyfill'
 import React from 'react'

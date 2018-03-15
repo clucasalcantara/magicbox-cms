@@ -8647,7 +8647,7 @@ Object.defineProperty(exports, "__esModule", {
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; /**
                                                                                                                                                                                                                                                                    * Routes - Declarative way to set routes
                                                                                                                                                                                                                                                                    * Author: Caio Alcantara - 2018
-                                                                                                                                                                                                                                                                   * @memberOf magicbox-core/isomorphic
+                                                                                                                                                                                                                                                                   * @memberOf magicbox-cms
                                                                                                                                                                                                                                                                    */
 
 // Import constants
@@ -9755,7 +9755,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 /**
  * Client entrypoint
  * Author: Caio Alcantara - 2018
- * @memberOf magicbox-core/isomorphic
+ * @memberOf magicbox-cms
  */
 var store = (0, _helpers.easyStore)();
 // Importing redux store
@@ -39304,7 +39304,7 @@ Object.defineProperty(exports, "__esModule", {
 /**
  * Constants - Holds all custom variables
  * Author: Caio Alcantara - 2018
- * @memberOf magicbox-core/isomorphic
+ * @memberOf magicbox-cms
  */
 exports.default = {
   MATCH_ROUTE_EXACT: { exact: true }
@@ -39373,7 +39373,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 /**
  * Interface to export helpers from easyEngine
  * Author: Caio Alcantara - 2018
- * @memberOf magicbox-core/isomorphic
+ * @memberOf magicbox-cms
  */
 exports.easyRenderer = _easyRenderer2.default;
 exports.easyStore = _easyStore2.default;
@@ -39422,7 +39422,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * EasyRenderer - Holds the template generation for SSR and
  * preloaded input injection
  * Author: Caio Alcantara - 2018
- * @memberOf magicbox-core/isomorphic
+ * @memberOf magicbox-cms
  */
 exports.default = function () {
   var req = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
@@ -44073,7 +44073,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 /**
  * EasyStore - Responsible to generate the store to our app
  * Author: Caio Alcantara - 2018
- * @memberOf magicbox-core/isomorphic
+ * @memberOf magicbox-cms
  */
 var sagaMiddleware = (0, _reduxSaga2.default)();
 // Initializing reducers

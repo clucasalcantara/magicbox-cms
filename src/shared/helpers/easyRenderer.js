@@ -2,7 +2,7 @@
  * EasyRenderer - Holds the template generation for SSR and
  * preloaded input injection
  * Author: Caio Alcantara - 2018
- * @memberOf magicbox-core/isomorphic
+ * @memberOf magicbox-cms
  */
 import React from 'react'
 import { renderToString } from 'react-dom/server'

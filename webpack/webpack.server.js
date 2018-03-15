@@ -1,7 +1,7 @@
 /**
  * Webpack server
  * Author: Caio Alcantara - 2018
- * @memberOf magicbox-core/isomorphic
+ * @memberOf magicbox-cms
 */
 const path = require('path')
 const merge = require('webpack-merge')
