@@ -1,5 +1,5 @@
 /**
- * config - Interface to export the config files
+ * config - Interface to expose the config files
  * Author: Caio Alcantara - 2018
  * @memberOf magicbox-core/isomorphic
 */
