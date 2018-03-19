@@ -21,12 +21,12 @@ const { WebAuth } = auth0
 
 class Auth {
   authInstance = new WebAuth({
-    domain: 'magicbox.auth0.com',
-    clientID: '0onV-Ii40zaMvAQ5Xl0SR8R5aGmMmtjP',
-    redirectUri: 'https://localhost:3333',
-    audience: 'https://magicbox.auth0.com/api/v2/',
-    responseType: 'token id_token',
-    scope: 'openid'
+    domain,
+    clientID,
+    redirectUri,
+    audience,
+    responseType,
+    scope,
   })
 
   /**
