@@ -4,8 +4,8 @@
   "description": "Server side rendering project with React 16",
   "main": "index.js",
   "scripts": {
-    "build-server": "webpack --config webpack/webpack.server.js --watch",
-    "build-client": "webpack --config webpack/webpack.client.js --watch",
+    "build-server": "webpack --display=errors-only --config webpack/webpack.server.js --watch",
+    "build-client": "webpack --display=errors-only --config webpack/webpack.client.js --watch",
     "dev:server": "nodemon --watch build --exec \"node build/bundle.js\"",
     "dev": "npm-run-all --parallel build-* dev:*",
     "graphql": "node ./scripts/start.js",

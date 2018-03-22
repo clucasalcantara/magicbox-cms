@@ -3,6 +3,9 @@
  * Author: Caio Alcantara - 2018
  * @memberOf magicbox-cms
  */
-export default {
-  MATCH_ROUTE_EXACT: { exact: true },
+
+const MATCH_ROUTE_EXACT = { exact: true }
+
+export {
+  MATCH_ROUTE_EXACT,
 }

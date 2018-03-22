@@ -10,8 +10,6 @@ import React from 'react'
 import { matchRoutes } from 'react-router-config'
 // Import custom renderer and store
 import { easyRenderer, easyStore } from '../shared/helpers'
-// Import local api
-import { api, requestMonitor } from '../shared/config/api'
 // Import routes
 import _routes from '../shared/config/_routes'
 // Import react helmet
@@ -23,13 +21,17 @@ const app = express()
 app.use(express.static('public'))
 app.use('/fonts', express.static('public/fonts'))
 
+app.get('/favicon.ico', (req, res) => {
+  res.status(204);
+});
+
 app.get('*', async (req, res) => {
   const store = easyStore()
   const { path } = req
 
-  const pendingRequests = matchRoutes(_routes, path).map(({ route }) => {
+  const pendingRequests = matchRoutes(_routes, path).map(({ route, match }) => {
     Helmet.rewind()
-    return route.loadData ? route.loadData() : null
+      return route.loadData ? route.loadData(match) : null // Load data with router params
   })
 
   // All data must be loaded here, ok....

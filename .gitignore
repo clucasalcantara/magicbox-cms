@@ -3,6 +3,7 @@
 ### React ###
 build/
 build
+public/scripts.js
 
 ### Node ###
 # Logs
