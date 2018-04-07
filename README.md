@@ -1,4 +1,7 @@
+
 ## MagicBox
+[![Maintainability](https://api.codeclimate.com/v1/badges/813cf762d3aa8945e110/maintainability)](https://codeclimate.com/github/clucasalcantara/magicbox-cms/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/813cf762d3aa8945e110/test_coverage)](https://codeclimate.com/github/clucasalcantara/magicbox-cms/test_coverage)
 
 Made with magic, made with _React_
 
