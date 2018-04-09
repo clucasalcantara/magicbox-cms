@@ -1,7 +1,7 @@
 /**
  * Auth Class
  * Login and token handling
- * @memberOf magicbox-cms/auth
+ * @memberOf effect-cms/auth
  * Author: Caio Alcantara
  *
  **/

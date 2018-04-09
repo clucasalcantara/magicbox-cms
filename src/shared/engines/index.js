@@ -1,6 +1,6 @@
 /**
- * Entrypoint for magicbox engines
- * @memberOf magicbox-cms
+ * Entrypoint for effect engines
+ * @memberOf effect-cms
  *
  **/
 import * as accessEngine from './access'

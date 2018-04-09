@@ -1,7 +1,7 @@
 /**
  * Webpack client
  * Author: Caio Alcantara - 2018
- * @memberOf magicbox-cms
+ * @memberOf effect-cms
 */
 const path = require('path')
 const merge = require('webpack-merge')

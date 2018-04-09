@@ -1,7 +1,7 @@
 /**
  * EasyStore - Responsible to generate the store to our app
  * Author: Caio Alcantara - 2018
- * @memberOf magicbox-cms
+ * @memberOf effect-cms
  */
 import { createStore, applyMiddleware } from 'redux'
 // Import redux-saga Middleware

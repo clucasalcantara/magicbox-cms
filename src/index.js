@@ -1,7 +1,7 @@
 /**
  * Default entrypoint
  * Author: Caio Alcantara - 2018
- * @memberOf magicbox-cms
+ * @memberOf effect-cms
  */
 import('./server/index.js')
 .then(server => {

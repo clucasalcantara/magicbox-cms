@@ -2,7 +2,7 @@
  * EasyAPI - Returns a watched instace of an sauce api
  * Author: Caio Alcântara - 2018
  * @param {Object} - The api configuratiom
- * @memberOf magicbox-cms
+ * @memberOf effect-cms
  */
 import { apiConfig, constants } from '../config'
 import { create } from 'apisauce'
