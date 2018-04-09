@@ -1,6 +1,6 @@
 /**
  * Entrypoint for effect engines
- * @memberOf effect-cms
+ * @memberof effect-cms
  *
  **/
 import * as accessEngine from './access'

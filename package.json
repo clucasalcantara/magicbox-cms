@@ -1,7 +1,7 @@
 {
-  "name": "easy-react",
+  "name": "effect-cms",
   "version": "1.0.0",
-  "description": "Server side rendering project with React 16",
+  "description": "A CMS developed to be magic, and provides you a quickly, automated and innovative interface prototyping, build and deploy proccess",
   "main": "index.js",
   "scripts": {
     "build-server": "webpack --display=errors-only --config webpack/webpack.server.js --watch",

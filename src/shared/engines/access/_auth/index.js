@@ -1,8 +1,8 @@
 /**
  * Auth Class
  * Login and token handling
- * @memberOf effect-cms/auth
- * Author: Caio Alcantara
+ * @memberof effect-cms/auth
+ * @author Caio Alcantara
  *
  **/
 import auth0 from 'auth0-js'
@@ -30,7 +30,7 @@ class Auth {
   })
 
   /**
-  * Authorize method
+  * @authorize method
   * @param {void} -
   * @returns Auth.authorize() - Returns the login page
   *

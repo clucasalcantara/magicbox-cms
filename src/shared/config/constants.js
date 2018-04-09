@@ -1,7 +1,7 @@
 /**
  * Constants - Holds all custom variables
- * Author: Caio Alcantara - 2018
- * @memberOf effect-cms
+ * @author Caio Alcantara - 2018
+ * @memberof effect-cms
  */
 
 const MATCH_ROUTE_EXACT = { exact: true }

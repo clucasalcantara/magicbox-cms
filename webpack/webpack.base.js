@@ -1,7 +1,7 @@
 /**
  * Webpack base
- * Author: Caio Alcantara - 2018
- * @memberOf effect-cms
+ * @author Caio Alcantara - 2018
+ * @memberof effect-cms
  */
 module.exports = {
   // Tell webpack to run babel on every file it runs through
