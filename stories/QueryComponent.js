@@ -1,3 +1,10 @@
+/**
+ * @class QueryComponent
+ * @extends Component
+ * @memberof effect-cms
+ * @author Caio Alcantara - 2018
+ */
+
 import React, { Component } from 'react'
 
 import ContentProvider from '../packages/content-provider'

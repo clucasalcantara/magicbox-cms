@@ -6,10 +6,10 @@
  * @memberof effect-cms
  */
 import React, { Component } from 'react'
-import fetchCollection from './components'
+import contentEngine from '../../src/shared/engines/content'
 
 class ContentProvider extends Component {
-  _getCollection = (area, client = null) => fetchCollection(area)
+  _getCollection = (area, client = null) => contentEngine.fetchCollection(area, client)
 
   render() {
     const { area, client, render: ComponentRender } = this.props
