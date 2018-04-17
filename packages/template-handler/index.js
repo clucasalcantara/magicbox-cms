@@ -1,1 +1,5 @@
-export default (content) => content
+const ThemeProvider = ({
+  injectTheme: (theme) => { theme },
+})
+
+export default ThemeProvider

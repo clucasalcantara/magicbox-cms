@@ -7,23 +7,30 @@
  */
 import React, { Component } from 'react'
 import contentEngine from '../../src/shared/engines/content'
+import { UIElementNotFound } from '../../src/shared/engines/utils'
 
-class ContentProvider extends Component {
-  _getCollection = (area, client = null) => contentEngine.fetchCollection(area, client)
+class ContentProvider extends Component { 
+  _getUIContext = (client = null, desiredComponent) => contentEngine.fetchCollection(client, desiredComponent)
 
   render() {
-    const { area, client, render: ComponentRender } = this.props
-
-    const collectedData = this._getCollection(area)
-    // const templateConfig = this._getTemplateProps(client)
-    const templateConfig = { default: true }
+    const { client, render: ComponentRender, desiredComponent: cKey } = this.props
+    const UIContext = this._getUIContext(client, cKey)
+    let cVersion = null
+    // Updating content version
+    try {
+      const { contentVersion: cVersion } = UIContext
+    } catch(error) {
+      throw new Error(UIElementNotFound(cKey, error))
+    }
+    const templateConfig = { default: true }    
+    const data = contentEngine.fetchData(cKey, cVersion)
 
     return ComponentRender({
-      componentState: { 
-        data: collectedData,
-        templateConfig,
-        theme: 'divine'
+      effectContext: {
+        UIContext,
+        data,
       },
+      template: templateConfig,
     })
   }
 }

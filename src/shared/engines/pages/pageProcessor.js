@@ -1,7 +1,7 @@
 import pages from './pages'
 
-const getPageConfig = (key) => pages.filter(page => page.id === key)
+const getPageData = (key) => pages.filter(page => page.id === key)[0]
 
 export {
-  getPageConfig
+  getPageData
 }

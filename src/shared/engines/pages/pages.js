@@ -1,24 +1,24 @@
 const pages = [
   {
     id: 'home',
-    title: 'PAGE HOME',
+    title: 'PAGE',
     components: [
       {
         name: 'Header Customizado',
         area: 'Header',
-        identifier: 'page-header',
+        componentKey: 'Header',
         theme: 'nightfall',
       },
       {
         name: 'Nav 1',
         area: 'Navigation',
-        identifier: 'nav-row',
+        componentKey: 'NavBar',
         theme: 'nightfall-light',
       },
       {
         name: 'Footer',
         area: 'Footer',
-        identifier: 'footer',
+        componentKey: 'Footer',
         theme: 'nightfall',
       }
     ]
