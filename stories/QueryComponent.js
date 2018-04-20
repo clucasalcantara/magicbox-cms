@@ -13,12 +13,18 @@ import * as UIComponents from '../src/shared/components'
 
 class QueryComponent extends Component {
   render() {
-    const { config, componentKey, client: activeClient } = this.props
+    const {
+      config,
+      componentKey,
+      client: activeClient,
+      type: receivedType
+    } = this.props
 
     return (
       <ContentProvider
-      desiredComponent={componentKey}
+        desiredComponent={componentKey}
         client={activeClient}
+        type={receivedType}
         render={
           ({ effectContext, template }) => {
             const { UIContext, data } = effectContext

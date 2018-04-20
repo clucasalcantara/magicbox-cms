@@ -13,7 +13,7 @@ class ContentProvider extends Component {
   _getUIContext = (client = null, desiredComponent) => contentEngine.fetchCollection(client, desiredComponent)
 
   render() {
-    const { client, render: ComponentRender, desiredComponent: cKey } = this.props
+    const { client, render: ComponentRender, desiredComponent: cKey, type: cType } = this.props
     const UIContext = this._getUIContext(client, cKey)
     let cVersion = null
     // Updating content version
@@ -23,7 +23,7 @@ class ContentProvider extends Component {
       throw new Error(UIElementNotFound(cKey, error))
     }
     const templateConfig = { default: true }    
-    const data = contentEngine.fetchData(cKey, cVersion)
+    const data = cType === 'static' ? null : contentEngine.fetchData(cKey, cVersion)
 
     return ComponentRender({
       effectContext: {

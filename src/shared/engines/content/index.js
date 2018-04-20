@@ -20,7 +20,7 @@ const getClientUIContext = (client, cKey = null) => {
 
 const getUIdata = (cKey, contentVersion) => {
   return {
-    content: 'Dummy'
+    content: 'Query component content',
   }
 }
 
