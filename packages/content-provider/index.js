@@ -6,11 +6,30 @@
  * @memberof effect-cms
  */
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+// Engines
 import contentEngine from '../../src/shared/engines/content'
-import { UIElementNotFound } from '../../src/shared/engines/utils'
+// Utils
+import { UIElementNotFound } from '../../src/shared/engines/utils/errors'
 
-class ContentProvider extends Component { 
-  _getUIContext = (client = null, desiredComponent) => contentEngine.fetchCollection(client, desiredComponent)
+class ContentProvider extends Component {
+  static propTypes = {
+    client: PropTypes.object,
+    desiredComponent: PropTypes.string,
+  }
+
+  static defaultProps = {
+    client: {
+      id: '132bcbaf871261',
+      name: 'Effect Anonymous',
+      roles: [
+        'sysadmin',
+        'Administrator',
+        'Content'
+      ]
+    },
+    desiredComponent: 'RegularText',
+  }
 
   render() {
     const { client, render: ComponentRender, desiredComponent: cKey, type: cType } = this.props
@@ -33,6 +52,8 @@ class ContentProvider extends Component {
       template: templateConfig,
     })
   }
+
+  _getUIContext = (client = null, desiredComponent) => contentEngine.fetchCollection(client, desiredComponent)
 }
 
 export default ContentProvider

@@ -30,7 +30,7 @@ class QueryComponent extends Component {
             const { UIContext, data } = effectContext
             const { componentKey, theme } = UIContext
             const UIElement = UIComponents[componentKey]
-            
+
             return (
               <UIElement
                 {...ThemeProvider.injectTheme(theme)}
