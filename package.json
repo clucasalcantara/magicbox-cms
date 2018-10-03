@@ -1,7 +1,7 @@
 {
-  "name": "easy-react",
+  "name": "effect-cms",
   "version": "1.0.0",
-  "description": "Server side rendering project with React 16",
+  "description": "A CMS developed to be magic, and provides you a quickly, automated and innovative interface prototyping, build and deploy proccess",
   "main": "index.js",
   "scripts": {
     "build-server": "webpack --display=errors-only --config webpack/webpack.server.js --watch",
@@ -9,7 +9,9 @@
     "dev:server": "nodemon --watch build --exec \"node build/bundle.js\"",
     "dev": "npm-run-all --parallel build-* dev:*",
     "graphql": "node ./scripts/start.js",
-    "test": "node scripts/test.js --env=jsdom"
+    "test": "node scripts/test.js --env=jsdom",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "author": "",
   "license": "ISC",
@@ -51,7 +53,7 @@
     "apisauce": "^0.14.3",
     "auth0-js": "^9.3.3",
     "axios": "0.16.2",
-    "babel-cli": "6.26.0",
+    "babel-cli": "^6.26.0",
     "babel-core": "6.26.0",
     "babel-jest": "22.4.3",
     "babel-loader": "7.1.2",
@@ -99,6 +101,15 @@
     "webpack-node-externals": "1.6.0"
   },
   "devDependencies": {
+    "@storybook/addon-actions": "^3.3.15",
+    "@storybook/addon-links": "^3.3.15",
+    "@storybook/addons": "^3.3.15",
+    "@storybook/react": "^3.3.15",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
+    "babel-plugin-transform-export-extensions": "^6.22.0",
+    "babel-preset-flow": "^6.23.0",
+    "enzyme": "^3.3.0",
+    "flow-bin": "^0.70.0",
     "webpack-messages": "^1.0.1"
   }
 }

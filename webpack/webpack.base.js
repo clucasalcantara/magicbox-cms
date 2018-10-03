@@ -1,7 +1,7 @@
 /**
  * Webpack base
- * Author: Caio Alcantara - 2018
- * @memberOf magicbox-cms
+ * @author Caio Alcantara - 2018
+ * @memberof effect-cms
  */
 module.exports = {
   // Tell webpack to run babel on every file it runs through
@@ -16,6 +16,7 @@ module.exports = {
           presets: [
             'react',
             'stage-0',
+            'flow',
             ['env', { targets: { browsers: ['last 2 versions'] } }]
           ]
         }

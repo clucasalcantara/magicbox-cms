@@ -1,7 +1,7 @@
 /**
  * Webpack server
- * Author: Caio Alcantara - 2018
- * @memberOf magicbox-cms
+ * @author Caio Alcantara - 2018
+ * @memberof effect-cms
 */
 const path = require('path')
 const merge = require('webpack-merge')
@@ -28,8 +28,10 @@ const config = {
   plugins: [
     new WebpackMessages({
       name: 'server',
-      logger: str => console.log(`Server bundle >> ${str}`)
-    })
+      logger: str => console.log(`Server bundle >> ${str}`),
+    }),
+    'babel-plugin-transform-export-extensions',
+    'transform-es2015-modules-commonjs'
   ],
 
   externals: [webpackNodeExternals()]

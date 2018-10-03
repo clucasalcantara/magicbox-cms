@@ -1,7 +1,7 @@
 /**
  * Server entrypoint
- * Author: Caio Alcantara - 2018
- * @memberOf magicbox-cms
+ * @author Caio Alcantara - 2018
+ * @memberof effect-cms
  */
 import 'babel-polyfill'
 import express from 'express'

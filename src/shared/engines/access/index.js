@@ -1,8 +1,8 @@
 /**
  * Entrypoint of access engine
  * Access controle, roles and user management
- * @memberOf amgicbox-cms
- * Author: Caio Alcantara
+ * @memberof amgicbox-cms
+ * @author Caio Alcantara
  **/
 
 // Authentication services
