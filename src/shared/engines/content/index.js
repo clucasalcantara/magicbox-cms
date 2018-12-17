@@ -9,24 +9,15 @@
  */
 import findClientUISet from './components'
 
-const getClientUIContext = (client, cKey = null) => {
-  if (cKey) {
-    return findClientUISet(client)
-      .filter(comp => comp.id === cKey)
-  }
-  
-  return findClientUISet(client)
-}
+const getClientUIContext = (client) => findClientUISet(client) || []
 
-const getUIdata = (cKey, contentVersion) => {
-  return {
-    content: 'Query component content',
-  }
-}
+const getUIdata = (client, cKey, contentVersion) =>
+  findClientUISet(client)
+  .find(comp => comp.id === cKey)
 
 const contentEngine = ({
-  fetchCollection: (client, cKey) => getClientUIContext(client, cKey)[0],
-  fetchData: (cKey, contentVersion) => getUIdata(cKey, contentVersion)
+  fetchCollection: (client) => getClientUIContext(client),
+  fetchData: (client, cKey, contentVersion) => getUIdata(client, cKey, contentVersion)
 })
 
 export default contentEngine

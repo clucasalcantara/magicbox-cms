@@ -4,7 +4,7 @@
  * @memberof effect-cms
 */
 import Routes from './_routes'
-import api from './api'
+import api from './apiConfig'
 import constants from './constants'
 
 const getRoutes = () => Routes

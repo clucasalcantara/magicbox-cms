@@ -1,5 +1,5 @@
 /**
- * EasyRenderer - Holds the template generation for SSR and
+ * effectRenderer - Holds the template generation for SSR and
  * preloaded input injection
  * @author Caio Alcantara - 2018
  * @memberof effect-cms

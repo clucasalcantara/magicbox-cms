@@ -3,10 +3,10 @@
  * @author Caio Alcantara - 2018
  * @memberof effect-cms
  */
-import easyRenderer from './easyRenderer'
-import easyStore from './easyStore'
+import effectRenderer from './effectRenderer'
+import effectStore from './effectStore'
 
 export {
-  easyRenderer,
-  easyStore,
+  effectRenderer,
+  effectStore,
 }

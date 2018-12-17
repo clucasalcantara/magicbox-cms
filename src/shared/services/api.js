@@ -7,7 +7,7 @@
 import { apiConfig, constants } from '../config'
 import { create } from 'apisauce'
 
-export const EasyAPI = ({
+export const EffectAPI = ({
     api: () => create({
       baseURL: apiConfig.baseURL,
       timeout: apiConfig.timeout,

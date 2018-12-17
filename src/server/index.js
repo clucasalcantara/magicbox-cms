@@ -9,7 +9,7 @@ import React from 'react'
 // Routers helpers
 import { matchRoutes } from 'react-router-config'
 // Import custom renderer and store
-import { easyRenderer, easyStore } from '../shared/helpers'
+import { effectRenderer, effectStore } from '../shared/helpers'
 // Import routes
 import _routes from '../shared/config/_routes'
 // Import react helmet
@@ -26,7 +26,7 @@ app.get('/favicon.ico', (req, res) => {
 });
 
 app.get('*', async (req, res) => {
-  const store = easyStore()
+  const store = effectStore()
   const { path } = req
 
   const pendingRequests = matchRoutes(_routes, path).map(({ route, match }) => {
@@ -41,7 +41,7 @@ app.get('*', async (req, res) => {
   await Promise.all(pendingRequests)
 
   // To Do: Initialize/Rehydrate data
-  res.send(easyRenderer(req, store))
+  res.send(effectRenderer(req, store))
 })
 
 app.listen(3333, () => {

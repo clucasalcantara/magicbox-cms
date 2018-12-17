@@ -1,5 +1,5 @@
 /**
- * EasyStore - Responsible to generate the store to our app
+ * effectStore - Responsible to generate the store to our app
  * @author Caio Alcantara - 2018
  * @memberof effect-cms
  */

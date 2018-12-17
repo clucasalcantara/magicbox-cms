@@ -29,7 +29,7 @@ storiesOf('Template Engine', module).add('TemplateExample', () => <TemplateExamp
 storiesOf('Content Engine', module).add('QueryComponent', () => (
   <QueryComponent
     type='dynamic'
-    componentKey='oceanText'
+    desiredComponent='oceanText'
     client={client} />
   )
 )

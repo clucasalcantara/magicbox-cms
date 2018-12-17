@@ -12,9 +12,9 @@ import { Provider } from 'react-redux'
 // Importing routes
 import Routes from '../shared/config/_routes'
 // Importing redux store
-import { easyStore } from '../shared/helpers'
+import { effectStore } from '../shared/helpers'
 
-const store = easyStore()
+const store = effectStore()
 
 ReactDOM.hydrate(
   <Provider store={store}>

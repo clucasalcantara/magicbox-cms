@@ -1,5 +1,5 @@
 import React from 'react';
 
 export default ({content}) => (
-  <span>{content}</span>
+  <span>dummy: {content}</span>
 )

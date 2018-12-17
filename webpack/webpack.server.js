@@ -29,9 +29,7 @@ const config = {
     new WebpackMessages({
       name: 'server',
       logger: str => console.log(`Server bundle >> ${str}`),
-    }),
-    'babel-plugin-transform-export-extensions',
-    'transform-es2015-modules-commonjs'
+    })
   ],
 
   externals: [webpackNodeExternals()]

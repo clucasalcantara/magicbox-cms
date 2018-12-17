@@ -11,30 +11,40 @@ import ContentProvider from '../packages/content-provider'
 import ThemeProvider from '../packages/template-handler/index'
 import * as UIComponents from '../src/shared/components'
 
+import { ERROR_MESSAGES } from '../src/shared/config/constants'
+
 class QueryComponent extends Component {
   render() {
     const {
       config,
-      componentKey,
+      desiredComponent,
       client: activeClient,
       type: receivedType
     } = this.props
 
     return (
       <ContentProvider
-        desiredComponent={componentKey}
+        desiredComponent={desiredComponent}
         client={activeClient}
         type={receivedType}
         render={
           ({ effectContext, template }) => {
             const { UIContext, data } = effectContext
-            const { componentKey, theme } = UIContext
+            const { theme } = UIContext
+            const componentData = UIContext.find(element => element.id === desiredComponent)
+            const { componentKey } = componentData || {}
             const UIElement = UIComponents[componentKey]
+            
+            if (!componentData || !UIElement) {
+              const error = new Error(ERROR_MESSAGES.componentNotFound(desiredComponent))
+
+              throw error
+            }
 
             return (
               <UIElement
                 {...ThemeProvider.injectTheme(theme)}
-                content={data.content}
+                content={data.dummyContent}
               />
             )
           }

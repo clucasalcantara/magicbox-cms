@@ -33,16 +33,17 @@ class ContentProvider extends Component {
 
   render() {
     const { client, render: ComponentRender, desiredComponent: cKey, type: cType } = this.props
-    const UIContext = this._getUIContext(client, cKey)
+    const UIContext = this._getUIContext(client)
     let cVersion = null
     // Updating content version
     try {
-      const { contentVersion: cVersion } = UIContext
+      const { contentVersion } = UIContext
+      cVersion = contentVersion
     } catch(error) {
       throw new Error(UIElementNotFound(cKey, error))
     }
     const templateConfig = { default: true }    
-    const data = cType === 'static' ? null : contentEngine.fetchData(cKey, cVersion)
+    const data = cType === 'static' ? null : contentEngine.fetchData(UIContext, cKey, cVersion)
 
     return ComponentRender({
       effectContext: {
